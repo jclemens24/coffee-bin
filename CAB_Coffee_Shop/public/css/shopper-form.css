@@ -83,6 +83,14 @@
 	font-size: 20px;
 }
 
+.form_group input:valid {
+	border: 1px solid #37b24d;
+}
+
+/* .form_group input:invalid {
+	border: 1px solid #f03e3e;
+} */
+
 .form_actions {
 	position: static;
 	display: flex;
