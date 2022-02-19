@@ -12,10 +12,14 @@ let formIsValid = false;
 
 function validateForm() {
 	formIsValid = form.checkValidity();
+	if (formIsValid) {
+		errorMessage.textContent = 'Success!';
+		errorMessage.style.color = '#37b24d';
+	}
 	return formIsValid;
 }
 
-const checkValidity = function () {
+const checkValidity = function (el) {
 	if (
 		this.validity.patternMismatch ||
 		this.validity.typeMismatch ||
@@ -64,6 +68,7 @@ const processFormData = function (e) {
 			zip: form.zip.value,
 		};
 		console.log(captureData);
+		window.location.assign(`/views/index.html`);
 	}
 };
 
