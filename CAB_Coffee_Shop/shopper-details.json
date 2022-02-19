@@ -1,0 +1,57 @@
+[
+	{
+		"email": "greg@example.com",
+		"name": "Greg Sanders",
+		"phone": "555-444-9988",
+		"age": 34,
+		"location": {
+			"type": "Point",
+			"coordinates": [-80.185942, 25.774772],
+			"address": "301 Biscayne Blvd, Miami, FL 33132, USA"
+		}
+	},
+	{
+		"email": "martha@example.com",
+		"name": "Martha Turner",
+		"phone": "498-345-6578",
+		"age": 45,
+		"location": {
+			"type": "Point",
+			"coordinates": [-115.570154, 51.178456],
+			"address": "224 Banff Ave, Banff, AB, Canada"
+		}
+	},
+	{
+		"email": "tina@example.com",
+		"name": "Tina Belcher",
+		"phone": "619-555-4687",
+		"age": 22,
+		"location": {
+			"type": "Point",
+			"coordinates": [-106.822318, 39.190872],
+			"address": "419 S Mill St, Aspen, CO 81611, USA"
+		}
+	},
+	{
+		"email": "homer@simpsons.com",
+		"name": "Homer Simpson",
+		"phone": "312-698-3833",
+		"age": 47,
+		"location": {
+			"type": "Point",
+			"coordinates": [-115.172652, 36.110904],
+			"address": "3663 S Las Vegas Blvd, Las Vegas, NV 89109, USA"
+		}
+	},
+	{
+		"email": "michael@example.com",
+		"name": "Michael Scott",
+		"phone": "463-231-5487",
+		"age": 52,
+		"location": {
+			"type": "Point",
+			"coordinates": [-73.985141, 40.75894],
+			"address": "350 W 48th St New York, NY 10036, USA"
+		}
+	}
+]
