@@ -121,4 +121,5 @@
 
 .form_btn:hover {
 	background: #ffec99;
+	transition: all 2ms;
 }
