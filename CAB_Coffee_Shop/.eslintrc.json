@@ -1,0 +1,8 @@
+{
+  "extends": ["plugin:node/recommended", "prettier/prettier", "prettier"],
+  "globals": {
+    "document": true,
+    "window": true
+  },
+  "rules": {}
+}
