@@ -1,8 +1,16 @@
 {
-  "extends": ["plugin:node/recommended", "prettier/prettier", "prettier"],
+  "extends": ["plugin:prettier/recommended", "prettier/prettier", "prettier"],
   "globals": {
     "document": true,
     "window": true
   },
-  "rules": {}
+  "rules": {},
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  }
 }
