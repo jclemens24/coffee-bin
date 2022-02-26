@@ -1,4 +1,5 @@
 /* CSS Document */
+@import 'shopper-form.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 :root {
@@ -39,10 +40,38 @@ html {
 
 body {
   background: black;
+  background-color: var(--main-accent) !important;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   margin: 0;
   padding: 0;
+}
+
+dl,
+ol,
+ul {
+  margin-top: 14px !important;
+}
+
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+  line-height: 0;
+}
+
+i {
+  font-style: normal;
 }
 
 header {
@@ -52,15 +81,22 @@ header {
 
 h1.company_name {
   background: var(--main-accent);
-  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
   font-weight: 500;
   text-align: center;
   font-weight: bold;
   letter-spacing: 1.4px;
+  color: var(--secondary-color);
+  margin: 2rem 0;
+  line-height: 1.2;
 }
 
 nav.heading_nav {
   background: #ebc005;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: var(--main-accent);
   font-weight: bold;
   font-family: inherit;
@@ -76,18 +112,21 @@ nav .nav_links {
   font-size: 1.2rem;
 }
 
+.cart {
+  padding-right: 5rem;
+}
+
+.cart svg {
+  fill: var(--main-accent);
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+
 nav .nav_links li {
   margin: 0 10px;
 }
 
-.nav_links li a:-webkit-any-link {
-  text-decoration: none;
-}
-
-.nav_links li a:-webkit-any-link {
-  text-decoration: none;
-  color: var(--main-accent);
-}
 .nav_links li a:link {
   text-decoration: none;
   color: var(--main-accent);
@@ -95,6 +134,7 @@ nav .nav_links li {
 
 .nav_links li a:visited {
   text-decoration: none;
+  color: #000;
 }
 
 .nav_links li:hover {
@@ -151,6 +191,7 @@ div.Company_Info {
 
 div.Company_Info h2 {
   text-decoration: underline;
+  margin-bottom: 1rem;
 }
 
 div.Company_Info p {
@@ -162,9 +203,12 @@ section.Shopper_DocumentCollection {
   background-color: white;
   color: var(--main-accent);
   font-family: inherit;
-  padding: 20px;
-  margin-bottom: 5px;
+  padding: 30px;
   text-align: center;
+}
+
+.Shopper_DocumentCollection h2 {
+  padding: 10px 0;
 }
 
 section.Shopper_DocumentCollection a:-webkit-any-link,
@@ -175,9 +219,47 @@ section.Shopper_DocumentationCollection a:active {
   color: var(--main-accent);
 }
 
+section.coffeeProductsHead {
+  margin-top: 5px;
+  font-weight: bold;
+  background-color: #ebc005;
+  color: black;
+  padding: 20px;
+  text-align: center;
+}
+
+section.coffeeProduct {
+  margin-top: 5px;
+  gap: 15px;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+div.coffeeProduct h3 {
+  text-align: center;
+}
+
+div.coffeeProduct p {
+  margin: 5px;
+  padding: 5px;
+}
+div.explore h2 {
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
 section.divide {
   background-color: #ebc005;
   padding: 10px;
+}
+
+.show li a {
+  cursor: pointer;
 }
 
 .footer {

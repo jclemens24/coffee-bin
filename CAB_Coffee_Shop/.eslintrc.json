@@ -2,7 +2,9 @@
   "extends": ["plugin:prettier/recommended", "prettier/prettier", "prettier"],
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
   },
   "rules": {},
   "env": {
