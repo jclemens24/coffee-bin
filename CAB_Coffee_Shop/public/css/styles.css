@@ -26,6 +26,12 @@ html {
   overflow-x: hidden;
 }
 
+@media only screen and (max-width: 980px) {
+  html {
+    font-size: 75%;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -267,12 +273,16 @@ section.coffeeProduct {
 
 div.coffeeProduct p {
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
 }
 div.explore h2 {
   padding: 20px;
   margin: 10px;
   text-align: center;
+}
+
+.coffeeProduct button {
+  margin-top: 1rem;
 }
 
 section.divide {

@@ -1,9 +1,7 @@
-import { processProductFormData } from './productForm.js';
-import { checkValidity } from './productForm.js';
-import { processShopperFormData } from './shopperForm.js';
+import data from '../../data/product-details.json';
 
-const productForm = document.querySelector('.product_form');
-const shopperForm = document.querySelector('.shopper_form');
+console.log(data);
+
 const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
 
@@ -12,34 +10,6 @@ let cart = {
   items: [],
   totalAmount: 0
 };
-
-const availableProducts = [
-  {
-    id: 537890,
-    img: 'columbian.c59b7255.jpeg',
-    description: 'Columbian',
-    category: 'Coffee',
-    unit: 'grams',
-    price: '$10.59',
-    weight: 15
-  },
-  {
-    id: 642318,
-    description: 'Green',
-    category: 'Tea',
-    unit: 'grams',
-    price: '$7.99',
-    weight: 15
-  },
-  {
-    id: 674129,
-    description: 'Mug',
-    category: 'Merch',
-    unit: 'oz',
-    price: '$9.99',
-    weight: 15
-  }
-];
 
 modalBody.addEventListener('click', function (e) {
   const button = e.target.closest('.inline-button');
@@ -53,8 +23,6 @@ modalBody.addEventListener('click', function (e) {
     console.log(cart);
   }
 });
-const input = document.querySelector('input');
-input?.addEventListener('input', checkValidity.bind(input));
 
 function addToCart(item) {
   const text = `<div class="modal-item">
@@ -73,7 +41,7 @@ product.forEach(el => {
   el.addEventListener('click', function (e) {
     e.preventDefault();
     const id = e.target.dataset.id;
-    const foundItem = availableProducts.find(prod => prod.id === +id);
+    const foundItem = data.find(prod => prod.id === +id);
     cart.items.push(foundItem);
     cart.totalItems++;
     cart.totalAmount = foundItem.price;
@@ -81,6 +49,3 @@ product.forEach(el => {
     addToCart(foundItem);
   });
 });
-
-productForm?.addEventListener('submit', processProductFormData);
-shopperForm?.addEventListener('submit', processShopperFormData);

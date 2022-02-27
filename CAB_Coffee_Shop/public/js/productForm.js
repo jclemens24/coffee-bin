@@ -1,6 +1,6 @@
 const productForm = document.querySelector('.product_form');
-
-export const errorMessage = document.getElementById('message');
+const input = document.querySelector('input');
+const errorMessage = document.getElementById('message');
 
 function validateProductForm() {
   const productFormValid = productForm.checkValidity();
@@ -11,7 +11,7 @@ function validateProductForm() {
   return productFormValid;
 }
 
-export const checkValidity = function () {
+const checkValidity = function () {
   if (
     this.validity.patternMismatch ||
     this.validity.typeMismatch ||
@@ -32,7 +32,7 @@ export const checkValidity = function () {
   }
 };
 
-export const processProductFormData = function (e) {
+const processProductFormData = function (e) {
   e.preventDefault();
   const isValid = validateProductForm();
   if (isValid) {
@@ -47,3 +47,7 @@ export const processProductFormData = function (e) {
     console.log(captureData);
   }
 };
+
+input.addEventListener('input', checkValidity.bind(input));
+
+productForm?.addEventListener('submit', processProductFormData);
