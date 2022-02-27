@@ -70,6 +70,11 @@ h6 {
   line-height: 0;
 }
 
+p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 i {
   font-style: normal;
 }
@@ -169,6 +174,15 @@ img.head_img {
   width: 100%;
 }
 
+.coffee_img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  border: 2px solid var(--main-color);
+}
+
 section.Company_Info {
   gap: 15px;
   margin-top: 5px;
@@ -229,7 +243,6 @@ section.coffeeProductsHead {
 }
 
 section.coffeeProduct {
-  margin-top: 5px;
   gap: 15px;
   font-weight: bold;
   background-color: white;
@@ -237,11 +250,20 @@ section.coffeeProduct {
   padding: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
-div.coffeeProduct h3 {
-  text-align: center;
+.coffeeProduct_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 0 0;
 }
+
+/* div.coffeeProduct h3 {
+  text-align: center;
+} */
 
 div.coffeeProduct p {
   margin: 5px;
@@ -281,4 +303,51 @@ section.divide {
 .footer li {
   display: inline-block;
   margin-right: 20px;
+}
+
+.modal-dialog {
+  max-width: 70% !important;
+}
+
+@media screen and (max-width: 882px) {
+  .modal-dialog {
+    min-width: 100% !important;
+  }
+}
+
+.modal-body {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.modal-item span {
+  text-decoration: underline;
+}
+
+.modal-item span:first-child {
+  margin-left: 8px;
+}
+
+.modal-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 50px 50px;
+  align-items: center;
+}
+
+.coffee_modal_img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--main-color);
+}
+
+.modal-item svg {
+  display: inline;
+}
+
+.bi-plus-circle,
+.bi-dash-circle {
+  color: #000;
+  cursor: pointer;
 }

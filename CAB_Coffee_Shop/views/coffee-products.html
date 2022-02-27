@@ -23,8 +23,46 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../public/js/index.js"></script>
   </head>
   <body>
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span
+              class="badge position-absolute top-1 start-1 translate-middle badge rounded-circle border border-light bg-info"
+            >
+              1
+              <span class="visually-hidden">items</span>
+            </span>
+            <h5 class="modal-title">&nbsp;Cart Items</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-item">
+              <span>Item</span><span>Name</span><span>Description</span
+              ><span>Price</span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-warning">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
       <nav class="heading_nav">
         <ul class="nav_links">
@@ -42,6 +80,8 @@
             fill="currentColor"
             class="bi bi-cart-fill"
             viewBox="0 0 16 16"
+            data-bs-toggle="modal"
+            data-bs-target=".modal"
           >
             <path
               d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
@@ -52,6 +92,7 @@
 
       <h1 class="company_name">C.A.B Coffee Company</h1>
     </header>
+
     <div class="head_img">
       <div class="overlay"></div>
       <img
@@ -73,12 +114,13 @@
     </section>
 
     <section class="coffeeProduct">
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/columbian.jpeg" alt="" />
         <h3 class="coffeeProduct">Columbian</h3>
         <br />
         <p class="coffeeProduct">
-          Lorem ipsum dolor sit amet. Hic molestiae aliquam sit consequatur
-          magni qui consequuntur iure in similique esse.
+          The unique flavors and strong aroma make Columbian coffee a fan
+          favorite. Our beans are grown in a near-perfect environment.
         </p>
         <button
           type="button"
@@ -88,17 +130,27 @@
           Add to Cart
         </button>
         <ul class="dropdown-menu">
-          <li><a data-id="537890" class="dropdown-item">7 Grams: $7.99</a></li>
+          <li>
+            <a
+              href="modal"
+              data-bs-toggle="modal"
+              data-bs-target=".modal"
+              data-id="537890"
+              class="dropdown-item"
+              >7 Grams: $7.99</a
+            >
+          </li>
           <li><a class="dropdown-item">15 Grams: $10.59</a></li>
         </ul>
       </div>
 
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/frenchroast.jpg" alt="" />
         <h3 class="coffeeProduct">French Roast</h3>
         <br />
         <p class="coffeeProduct">
-          Lorem ipsum dolor sit amet. Hic molestiae aliquam sit consequatur
-          magni qui consequuntur iure in similique esse.
+          Prefer a bold flavor? Our french roast keeps to the traditions and
+          taste preferences of the French roasters and home-grown in France
         </p>
         <button
           type="button"
@@ -113,12 +165,13 @@
         </ul>
       </div>
 
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/caramelroast.jpg" alt="" />
         <h3 class="coffeeProduct">Caramel Roast</h3>
         <br />
         <p class="coffeeProduct">
-          Lorem ipsum dolor sit amet. Hic molestiae aliquam sit consequatur
-          magni qui consequuntur iure in similique esse.
+          Need a touch of rich caramel? Our caramel roast delivers perfect cup
+          after perfect cup with our secret homemade caramel sauce and cream
         </p>
         <button
           type="button"
@@ -134,7 +187,8 @@
       </div>
     </section>
     <section class="coffeeProduct">
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/espresso.jpeg" alt="" />
         <h3 class="coffeeProduct">Espresso</h3>
         <br />
         <p class="coffeeProduct">
@@ -153,7 +207,8 @@
           <li><a class="dropdown-item">15 Grams: $10.59</a></li>
         </ul>
       </div>
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/whiteroast.jpg" alt="" />
         <h3 class="coffeeProduct">White Roast</h3>
         <br />
         <p class="coffeeProduct">
@@ -172,7 +227,8 @@
           <li><a class="dropdown-item">15 Grams: $10.59</a></li>
         </ul>
       </div>
-      <div class="coffeeProduct">
+      <div class="coffeeProduct_container">
+        <img class="coffee_img" src="../public/img/decaf.jpg" alt="" />
         <h3 class="coffeeProduct">Decaf</h3>
         <br />
         <p class="coffeeProduct">
