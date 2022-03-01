@@ -92,7 +92,21 @@ class CartView {
     this.clear();
     this._listElement.textContent = `You're cart is empty`;
   }
+
+  saveCart() {
+    const cart = localStorage.setItem('cart', JSON.stringify(this.items));
+    console.log(cart);
+  }
 }
+
+const onWindowReload = function () {
+  const storage = localStorage.getItem('cart');
+  if (storage) cart.items = JSON.parse(storage);
+  cart.render(storage);
+  window.removeEventListener('load', onWindowReload);
+};
+
+window.addEventListener('load', onWindowReload);
 
 const addItemToCart = function (id) {
   const item = cart.items.find(prod => prod.id === +id);
