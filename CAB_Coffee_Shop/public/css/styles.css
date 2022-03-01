@@ -228,7 +228,7 @@ section.Shopper_DocumentCollection {
 }
 
 .Shopper_DocumentCollection h2 {
-  padding: 10px 0;
+  margin-bottom: 2rem;
 }
 
 section.Shopper_DocumentCollection a:-webkit-any-link,
@@ -266,10 +266,6 @@ section.coffeeProduct {
   justify-content: space-between;
   flex: 1 0 0;
 }
-
-/* div.coffeeProduct h3 {
-  text-align: center;
-} */
 
 div.coffeeProduct p {
   margin: 5px;
@@ -325,22 +321,16 @@ section.divide {
   }
 }
 
-.modal-body {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
-.modal-item span {
-  text-decoration: underline;
-}
-
-.modal-item span:first-child {
-  margin-left: 8px;
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
 .modal-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 50px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -350,10 +340,6 @@ section.divide {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--main-color);
-}
-
-.modal-item svg {
-  display: inline;
 }
 
 .bi-plus-circle,

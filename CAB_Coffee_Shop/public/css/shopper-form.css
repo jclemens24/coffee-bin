@@ -34,17 +34,19 @@
 
 .form_wrapper h1,
 .form_wrapper p {
-  margin: 1rem 0;
+  margin: 2rem 0;
   letter-spacing: 1.2px;
 }
 
 .form_wrapper p {
   font-size: 1.2rem;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 .form {
   width: 90%;
+  font-size: 80% !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -59,7 +61,7 @@
 
 .form_group {
   height: 65px;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
   font-family: 'Poppins';
 }
 
@@ -67,7 +69,7 @@
   position: relative;
   bottom: 2px;
   letter-spacing: 1.2px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .form_group input {
@@ -103,9 +105,10 @@
   background-color: #ebc005;
   font-size: 1.2rem;
   font-family: inherit;
+  letter-spacing: 1.1px;
   padding: 1em 1em;
   font-size: 16px;
-  width: 8rem;
+  width: 13rem;
   margin: 0 1rem;
   border-radius: 12px;
   outline: none;

@@ -2,8 +2,7 @@
   "name": "cab_coffee_shop",
   "version": "1.0.0",
   "description": "PSU IST 256 Group Project",
-  "main": "index.js",
-  "source": "views/index.html",
+  "source": "/views/index.html",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

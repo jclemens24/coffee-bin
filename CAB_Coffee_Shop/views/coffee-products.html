@@ -45,10 +45,8 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="modal-item">
-              <span>Item</span><span>Name</span><span>Description</span
-              ><span>Price</span>
-            </div>
+            <ul class="modal-items"></ul>
+            <div class="cart-totals"></div>
           </div>
           <div class="modal-footer">
             <button
@@ -58,7 +56,7 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-warning">Save changes</button>
+            <button type="button" class="btn btn-warning">Checkout</button>
           </div>
         </div>
       </div>
@@ -132,15 +130,23 @@
         <ul class="dropdown-menu">
           <li>
             <a
+              data-bs-toggle="modal"
+              data-bs-target=".modal"
+              data-id="537891"
+              class="dropdown-item"
+              >7 Grams: $7.99</a
+            >
+          </li>
+          <li>
+            <a
               href="modal"
               data-bs-toggle="modal"
               data-bs-target=".modal"
               data-id="537890"
               class="dropdown-item"
-              >7 Grams: $7.99</a
+              >15 Grams: $10.59</a
             >
           </li>
-          <li><a class="dropdown-item">15 Grams: $10.59</a></li>
         </ul>
       </div>
 
