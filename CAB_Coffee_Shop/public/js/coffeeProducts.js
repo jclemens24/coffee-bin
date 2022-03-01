@@ -17,12 +17,11 @@ class CartView {
     if (this.items.length === 0) {
       return this.emptyCart();
     }
-    const markup = this.items.map(this.generateMarkup);
+    const markup = this.items.map(this.generateMarkup).join('');
     this._listElement.insertAdjacentHTML('afterbegin', markup);
     this._cartTotals.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
-      signDisplay: 'never'
+      currency: 'USD'
     }).format(this.calcTotalCartPrice());
   }
 
@@ -37,14 +36,16 @@ class CartView {
                 style: 'currency',
                 currency: 'USD'
               }).format(data.price)}</p>
-              <i class="bi bi-plus-circle inline-button" data-add="1" data-price=${
-                data.price
-              } data-id=${data.id}></i>
-              <span class="item-quantity">${data.quantity}</span>
-              <i class="bi bi-dash-circle inline-button" data-minus="1" data-price=${
-                data.price
-              } data-id=${data.id}></i>
-              </li>`;
+              <div class="cart-actions">
+                <i class="bi bi-plus-circle inline-button" data-add="1" data-price=${
+                  data.price
+                } data-id=${data.id}></i>
+                <span class="item-quantity">${data.quantity}</span>
+                <i class="bi bi-dash-circle inline-button" data-minus="1" data-price=${
+                  data.price
+                } data-id=${data.id}></i>
+              </div>
+            </li>`;
   }
 
   update(data) {
@@ -94,22 +95,21 @@ class CartView {
 }
 
 const addItemToCart = function (id) {
-  const item = newCart.items.find(prod => prod.id === +id);
+  const item = cart.items.find(prod => prod.id === +id);
   item.quantity++;
-  newCart.update(item);
+  cart.update(item);
 };
 
 const removeItemFromCart = function (id) {
-  const item = newCart.items.find(prod => prod.id === +id);
+  const item = cart.items.find(prod => prod.id === +id);
   if (item.quantity === 1) {
-    newCart.items = newCart.items.filter(prod => prod.id !== +id);
-    newCart.clear();
-    newCart.render();
+    cart.items = cart.items.filter(prod => prod.id !== +id);
+    cart.clear();
+    cart.render();
   }
   if (item.quantity > 1) {
-    console.log(newCart.items);
     item.quantity--;
-    newCart.update(item);
+    cart.update(item);
   }
 };
 
@@ -123,20 +123,20 @@ modalBody.addEventListener('click', function (e) {
 
 const initializeCart = function (e) {
   const id = e.target.dataset.id;
-  const itemAlreadyInCart = newCart.items.find(item => item.id === +id);
+  const itemAlreadyInCart = cart.items.find(item => item.id === +id);
   if (itemAlreadyInCart) {
     itemAlreadyInCart.quantity++;
-    newCart.update(itemAlreadyInCart);
+    cart.update(itemAlreadyInCart);
   } else {
     const getItem = data.find(item => item.id === +id);
     getItem.quantity = 1;
-    newCart.items.push(getItem);
-    newCart.clear();
-    newCart.render();
+    cart.items.push(getItem);
+    cart.clear();
+    cart.render();
   }
 };
 
-const newCart = new CartView();
+const cart = new CartView();
 
 product.forEach(el => {
   el.addEventListener('click', initializeCart);

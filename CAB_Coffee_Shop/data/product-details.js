@@ -18,6 +18,24 @@ export const data = [
     weight: 7
   },
   {
+    id: 537901,
+    img: 'frenchroast.jpg',
+    description: 'French Roast',
+    category: 'Coffee',
+    unit: 'grams',
+    price: 7.99,
+    weight: 7
+  },
+  {
+    id: 537902,
+    img: 'frenchroast.jpg',
+    description: 'French Roast',
+    category: 'Coffee',
+    unit: 'grams',
+    price: 10.59,
+    weight: 15
+  },
+  {
     id: 642318,
     description: 'Green',
     category: 'Tea',
