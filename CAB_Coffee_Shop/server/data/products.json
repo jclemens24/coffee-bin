@@ -1,7 +1,6 @@
 [
   {
-    "id": 537890,
-    "img": "columbian.jpeg",
+    "image": "columbian.jpeg",
     "description": "Columbian",
     "category": "Coffee",
     "unit": "grams",
@@ -9,8 +8,7 @@
     "weight": 15
   },
   {
-    "id": 537891,
-    "img": "columbian.jpeg",
+    "image": "columbian.jpeg",
     "description": "Columbian",
     "category": "Coffee",
     "unit": "grams",
@@ -18,8 +16,7 @@
     "weight": 7
   },
   {
-    "id": 537901,
-    "img": "frenchroast.jpg",
+    "image": "frenchroast.jpg",
     "description": "French Roast",
     "category": "Coffee",
     "unit": "grams",
@@ -27,8 +24,7 @@
     "weight": 7
   },
   {
-    "id": 537902,
-    "img": "frenchroast.jpg",
+    "image": "frenchroast.jpg",
     "description": "French Roast",
     "category": "Coffee",
     "unit": "grams",
@@ -36,7 +32,6 @@
     "weight": 15
   },
   {
-    "id": 642318,
     "description": "Green",
     "category": "Tea",
     "unit": "grams",
@@ -44,7 +39,6 @@
     "weight": 15
   },
   {
-    "id": 674129,
     "description": "Mug",
     "category": "Merch",
     "unit": "oz",
