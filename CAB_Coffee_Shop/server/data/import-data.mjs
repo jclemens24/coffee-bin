@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import { readFileSync } from 'fs';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import Product from '../model/productModel.mjs';
@@ -19,10 +19,10 @@ mongoose
   .catch(err => console.log(err));
 
 const customers = JSON.parse(
-  fs.readFileSync(new URL('./customers.json', import.meta.url), 'utf-8')
+  readFileSync(new URL('./customers.json', import.meta.url), 'utf-8')
 );
 const products = JSON.parse(
-  fs.readFileSync(new URL('./products.json', import.meta.url), 'utf-8')
+  readFileSync(new URL('./products.json', import.meta.url), 'utf-8')
 );
 
 const importData = async () => {

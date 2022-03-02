@@ -26,6 +26,10 @@ const productSchema = new mongoose.Schema({
   },
   weight: {
     type: Number
+  },
+  quantity: {
+    type: Number,
+    default: 0
   }
 });
 

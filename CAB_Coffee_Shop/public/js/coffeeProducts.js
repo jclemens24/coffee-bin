@@ -1,9 +1,14 @@
-import { data } from '../../data/product-details.js';
-
-console.log(data);
-
 const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
+
+const fetchAllProducts = async function () {
+  const res = await fetch('http://localhost:8000/api/products');
+  const data = await res.json();
+  const { products } = data;
+  return products;
+};
+
+const products = await fetchAllProducts();
 class CartView {
   _parentElement = document.querySelector('.modal-body');
   _listElement = document.querySelector('.modal-items');
@@ -26,9 +31,9 @@ class CartView {
   }
 
   generateMarkup(data) {
-    return `<li class="modal-item" id="${data.id}">
+    return `<li class="modal-item" id="${data._id}">
               <img class="coffee_modal_img" src="/public/img/${
-                data.img
+                data.image
               }" alt='${data.description}' />
               <p>${data.category}</p>
               <p>${data.description}</p>
@@ -39,11 +44,11 @@ class CartView {
               <div class="cart-actions">
                 <i class="bi bi-plus-circle inline-button" data-add="1" data-price=${
                   data.price
-                } data-id=${data.id}></i>
+                } data-id=${data._id}></i>
                 <span class="item-quantity">${data.quantity}</span>
                 <i class="bi bi-dash-circle inline-button" data-minus="1" data-price=${
                   data.price
-                } data-id=${data.id}></i>
+                } data-id=${data._id}></i>
               </div>
             </li>`;
   }
@@ -53,7 +58,7 @@ class CartView {
     if (this.totalAmount === 0) {
       this.emptyCart();
     } else {
-      const oldDOM = document.getElementById(`${data.id}`);
+      const oldDOM = document.getElementById(`${data._id}`);
       oldDOM.querySelector('span').textContent = `${data.quantity}`;
       this._cartTotals.innerHTML = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -109,15 +114,16 @@ const onWindowReload = function () {
 window.addEventListener('load', onWindowReload);
 
 const addItemToCart = function (id) {
-  const item = cart.items.find(prod => prod.id === +id);
+  const item = cart.items.find(prod => prod._id === id);
   item.quantity++;
   cart.update(item);
 };
 
 const removeItemFromCart = function (id) {
-  const item = cart.items.find(prod => prod.id === +id);
+  const item = cart.items.find(prod => prod._id === id);
   if (item.quantity === 1) {
-    cart.items = cart.items.filter(prod => prod.id !== +id);
+    item.quantity--;
+    cart.items = cart.items.filter(prod => prod._id !== id);
     cart.clear();
     cart.render();
   }
@@ -135,15 +141,15 @@ modalBody.addEventListener('click', function (e) {
     : removeItemFromCart(button.dataset.id);
 });
 
-const initializeCart = function (e) {
+const initializeCart = async function (e) {
   const id = e.target.dataset.id;
-  const itemAlreadyInCart = cart.items.find(item => item.id === +id);
+  const itemAlreadyInCart = cart.items.find(item => item._id === id);
   if (itemAlreadyInCart) {
     itemAlreadyInCart.quantity++;
     cart.update(itemAlreadyInCart);
   } else {
-    const getItem = data.find(item => item.id === +id);
-    getItem.quantity = 1;
+    const getItem = products.find(item => item._id === id);
+    getItem.quantity++;
     cart.items.push(getItem);
     cart.clear();
     cart.render();
