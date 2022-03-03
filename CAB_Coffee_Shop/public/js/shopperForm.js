@@ -1,6 +1,3 @@
-import 'core-js';
-import 'regenerator-runtime';
-
 const shopperForm = document.querySelector('.shopper_form');
 const errorMessage = document.getElementById('message');
 const input = document.querySelectorAll('input');
