@@ -1,5 +1,3 @@
-import '../css/styles.css';
-
 const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
 
@@ -13,11 +11,10 @@ const fetchAllProducts = async function () {
     const { products } = data;
     return products;
   } catch (err) {
-    console.log(err ?? 'Something went wrong. Please try your request again!');
+    console.log(err || 'Something went wrong. Please try your request again!');
   }
 };
 
-const products = await fetchAllProducts();
 class CartView {
   _parentElement = document.querySelector('.modal-body');
   _listElement = document.querySelector('.modal-items');
@@ -165,6 +162,7 @@ const initializeCart = async function (e) {
     itemAlreadyInCart.quantity++;
     cart.update(itemAlreadyInCart);
   } else {
+    const products = await fetchAllProducts();
     const getItem = products.find(item => item._id === id);
     getItem.quantity++;
     cart.items.push(getItem);
