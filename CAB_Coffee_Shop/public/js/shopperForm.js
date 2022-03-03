@@ -1,6 +1,5 @@
 const shopperForm = document.querySelector('.shopper_form');
 const errorMessage = document.getElementById('message');
-const input = document.querySelectorAll('input');
 
 const validateShopperForm = function () {
   const shopperFormValid = shopperForm.checkValidity();
@@ -11,7 +10,7 @@ const validateShopperForm = function () {
   return shopperFormValid;
 };
 
-const checkValidity = function () {
+export const checkShopperValidity = function () {
   if (
     this.validity.patternMismatch ||
     this.validity.typeMismatch ||
@@ -36,11 +35,7 @@ const checkValidity = function () {
   }
 };
 
-input.forEach(el => {
-  el.addEventListener('input', checkValidity.bind(el));
-});
-
-const processShopperFormData = async function (e) {
+export const processShopperFormData = async function (e) {
   e.preventDefault();
   const isValid = validateShopperForm();
   if (isValid) {
@@ -69,9 +64,7 @@ const processShopperFormData = async function (e) {
       const data = await res.json();
       console.log(data);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
   }
 };
-
-shopperForm.addEventListener('submit', processShopperFormData);

@@ -1,17 +1,16 @@
 const productForm = document.querySelector('.product_form');
-const input = document.querySelectorAll('input');
 const errorMessage = document.getElementById('message');
 
-function validateProductForm() {
+const validateProductForm = function () {
   const productFormValid = productForm.checkValidity();
   if (productFormValid) {
     errorMessage.textContent = 'Success!';
     errorMessage.style.color = '#37b24d';
   }
   return productFormValid;
-}
+};
 
-const checkValidity = function () {
+export const checkProductValidity = function () {
   if (
     this.validity.patternMismatch ||
     this.validity.typeMismatch ||
@@ -19,20 +18,24 @@ const checkValidity = function () {
     this.validity.tooShort
   ) {
     this.style.borderColor = '#f03e3e';
-    this.setCustomValidity(
-      `Please check the ${this.getAttribute(
-        'name'
-      )} field. Format must match the example given`
-    );
+    if (this.validity.patternMismatch) {
+      this.setCustomValidity('Input must match the provided example');
+    }
+    if (this.validity.typeMismatch) {
+      this.setCustomValidity('Please provide a valid email');
+    }
+    if (this.validity.valueMissing) {
+      this.setCustomValidity('Please fill out this field');
+    }
     this.reportValidity();
   } else {
     this.style.borderColor = '#37b24d';
     this.setCustomValidity('');
-    return this.reportValidity();
+    this.reportValidity();
   }
 };
 
-const processProductFormData = function (e) {
+export const processProductFormData = function (e) {
   e.preventDefault();
   const isValid = validateProductForm();
   if (isValid) {
@@ -48,8 +51,8 @@ const processProductFormData = function (e) {
   }
 };
 
-input.forEach(el => {
-  el.addEventListener('input', checkValidity.bind(el));
-});
+// input.forEach(el => {
+//   el.addEventListener('input', checkValidity.bind(el));
+// });
 
-productForm?.addEventListener('submit', processProductFormData);
+// productForm?.addEventListener('submit', processProductFormData);

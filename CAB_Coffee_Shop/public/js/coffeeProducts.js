@@ -1,14 +1,17 @@
 const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
+const spinner = document.getElementById('spinner');
 
 const fetchAllProducts = async function () {
   try {
+    spinner.classList.add('visible');
     const res = await fetch('http://localhost:8000/api/products');
     if (!res.ok || res.status === 404) {
       throw new Error(res.message);
     }
     const data = await res.json();
     const { products } = data;
+    spinner.classList.add('invisible');
     return products;
   } catch (err) {
     console.log(err || 'Something went wrong. Please try your request again!');
@@ -155,7 +158,7 @@ modalBody.addEventListener('click', function (e) {
     : removeItemFromCart(button.dataset.id);
 });
 
-const initializeCart = async function (e) {
+export const initializeCart = async function (e) {
   const { id } = e.target.dataset;
   const itemAlreadyInCart = cart.items.find(item => item._id === id);
   if (itemAlreadyInCart) {
@@ -173,6 +176,6 @@ const initializeCart = async function (e) {
 
 const cart = new CartView();
 
-product.forEach(el => {
-  el.addEventListener('click', initializeCart);
-});
+// product.forEach(el => {
+//   el.addEventListener('click', initializeCart);
+// });

@@ -23,7 +23,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="../public/js/coffeeProducts.js"></script>
+    <script type="module" src="../public/js/index.js"></script>
   </head>
   <body>
     <div class="modal" tabindex="-1">
@@ -45,6 +45,11 @@
             ></button>
           </div>
           <div class="modal-body">
+            <div class="d-flex justify-content-center">
+              <div id="spinner" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
             <ul class="modal-items"></ul>
             <div class="cart-totals"></div>
           </div>
