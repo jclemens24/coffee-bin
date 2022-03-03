@@ -8,15 +8,19 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "prefer-destructuring": "error",
+    "semi": "error"
   },
   "env": {
     "es6": true,
-    "browser": true,
-    "node": true
+    "shared-node-browser": true
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
   }
 }

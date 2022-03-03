@@ -98,8 +98,8 @@ class CartView {
 
   calcTotalCartPrice() {
     this.totalAmount = this.items.reduce((acc, item) => {
-      const price = item.price;
-      const quantity = item.quantity;
+      const { price } = item;
+      const { quantity } = item;
       return acc + price * quantity;
     }, 0);
 
@@ -157,7 +157,7 @@ modalBody.addEventListener('click', function (e) {
 });
 
 const initializeCart = async function (e) {
-  const id = e.target.dataset.id;
+  const { id } = e.target.dataset;
   const itemAlreadyInCart = cart.items.find(item => item._id === id);
   if (itemAlreadyInCart) {
     itemAlreadyInCart.quantity++;

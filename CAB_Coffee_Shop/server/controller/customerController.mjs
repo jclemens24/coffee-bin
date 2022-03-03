@@ -1,7 +1,7 @@
 import Customer from '../model/customerModel.mjs';
 import AppError from '../utils/appError.mjs';
 import { catchAsync } from '../utils/catchAsync.mjs';
-import { getCoordsFromAddress } from '../utils/location.js';
+import { getCoordsFromAddress } from '../utils/location.mjs';
 
 export const getAllCustomers = catchAsync(async (req, res, next) => {
   const customers = await Customer.find({});

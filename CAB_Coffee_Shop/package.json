@@ -2,7 +2,7 @@
   "name": "cab_coffee_shop",
   "version": "1.0.0",
   "description": "PSU IST 256 Group Project",
-  "source": "/views/index.html",
+  "private": true,
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,23 @@
   "author": "Jordan Clemens, Trish Bui, Lillian Abraham",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "parcel": "^2.3.2",
-    "prettier": "^2.5.1"
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "^2.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "browerslist": "> 0.25%, not dead",
+  "dependencies": {
+    "core-js": "^3.21.1",
+    "regenerator-runtime": "^0.13.9"
   }
 }
