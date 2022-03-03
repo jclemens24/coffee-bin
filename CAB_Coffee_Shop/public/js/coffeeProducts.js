@@ -2,10 +2,17 @@ const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
 
 const fetchAllProducts = async function () {
-  const res = await fetch('http://localhost:8000/api/products');
-  const data = await res.json();
-  const { products } = data;
-  return products;
+  try {
+    const res = await fetch('http://localhost:8000/api/products');
+    if (!res.ok || res.status === 404) {
+      throw new Error(res.message);
+    }
+    const data = await res.json();
+    const { products } = data;
+    return products;
+  } catch (err) {
+    console.log(err ?? 'Something went wrong. Please try your request again!');
+  }
 };
 
 const products = await fetchAllProducts();
@@ -13,6 +20,8 @@ class CartView {
   _parentElement = document.querySelector('.modal-body');
   _listElement = document.querySelector('.modal-items');
   _cartTotals = document.querySelector('.cart-totals');
+  _cartBadge = document.getElementById('cartBadge');
+  _cartNavBadge = document.getElementById('cartNav');
   _message = '';
   items = [];
   totalItems = 0;
@@ -28,6 +37,8 @@ class CartView {
       style: 'currency',
       currency: 'USD'
     }).format(this.calcTotalCartPrice());
+    this._cartBadge.textContent = this.calcNumberOfCartItems();
+    this._cartNavBadge.textContent = this.calcNumberOfCartItems();
   }
 
   generateMarkup(data) {
@@ -64,6 +75,8 @@ class CartView {
         style: 'currency',
         currency: 'USD'
       }).format(this.calcTotalCartPrice());
+      this._cartBadge.textContent = this.calcNumberOfCartItems();
+      this._cartNavBadge.textContent = this.calcNumberOfCartItems();
     }
   }
 
@@ -96,6 +109,8 @@ class CartView {
   emptyCart() {
     this.clear();
     this._listElement.textContent = `You're cart is empty`;
+    this._cartBadge.textContent = this.calcNumberOfCartItems();
+    this._cartNavBadge.textContent = this.calcNumberOfCartItems();
   }
 
   saveCart() {

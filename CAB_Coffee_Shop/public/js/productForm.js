@@ -1,5 +1,5 @@
 const productForm = document.querySelector('.product_form');
-const input = document.querySelector('input');
+const input = document.querySelectorAll('input');
 const errorMessage = document.getElementById('message');
 
 function validateProductForm() {
@@ -48,6 +48,8 @@ const processProductFormData = function (e) {
   }
 };
 
-input.addEventListener('input', checkValidity.bind(input));
+input.forEach(el => {
+  el.addEventListener('input', checkValidity.bind(el));
+});
 
 productForm?.addEventListener('submit', processProductFormData);

@@ -30,10 +30,17 @@ const customerSchema = new mongoose.Schema(
         },
         message: num => `${num.value} is not a valid phone number`
       },
-      required: false
+      default: null
     },
     birthday: {
-      type: Date
+      type: Date,
+      get: date => Math.ceil(new Date().toUTCString() - date)
+    },
+    age: {
+      type: Number,
+      set: function () {
+        return Math.ceil(new Date().toUTCString() - this.birthday);
+      }
     },
     location: {
       type: {

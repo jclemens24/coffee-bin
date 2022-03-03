@@ -88,7 +88,11 @@
   border: 1px solid #37b24d;
 }
 
-.form_group input:invalid {
+.form_group input:user-invalid {
+  border: 1px solid #f03e3e;
+}
+
+.form_group input:-moz-ui-invalid {
   border: 1px solid #f03e3e;
 }
 

@@ -126,6 +126,7 @@ nav .nav_links {
 
 .cart {
   padding-right: 5rem;
+  position: relative;
 }
 
 .cart svg {
@@ -329,6 +330,7 @@ section.divide {
 div.modal-header {
   font-size: 20px !important;
   font-weight: 700 !important;
+  position: relative;
 }
 
 .modal-body {
