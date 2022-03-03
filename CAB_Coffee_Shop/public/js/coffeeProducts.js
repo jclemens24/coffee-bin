@@ -1,3 +1,5 @@
+import '../css/styles.css';
+
 const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
 
