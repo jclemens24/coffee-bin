@@ -1,4 +1,3 @@
-const product = document.querySelectorAll('.dropdown-item');
 const modalBody = document.querySelector('.modal-body');
 const spinner = document.getElementById('spinner');
 
@@ -128,7 +127,7 @@ const onWindowReload = function () {
   window.removeEventListener('load', onWindowReload);
 };
 
-window.addEventListener('load', onWindowReload);
+document.addEventListener('load', onWindowReload);
 
 const addItemToCart = function (id) {
   const item = cart.items.find(prod => prod._id === id);
@@ -150,7 +149,7 @@ const removeItemFromCart = function (id) {
   }
 };
 
-modalBody.addEventListener('click', function (e) {
+modalBody?.addEventListener('click', function (e) {
   const button = e.target.closest('.inline-button');
   if (!button) return;
   button.dataset.add
@@ -175,7 +174,3 @@ export const initializeCart = async function (e) {
 };
 
 const cart = new CartView();
-
-// product.forEach(el => {
-//   el.addEventListener('click', initializeCart);
-// });

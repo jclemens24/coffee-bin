@@ -1,3 +1,5 @@
+import 'core-js';
+import 'regenerator-runtime';
 import { checkProductValidity, processProductFormData } from './productForm.js';
 import { checkShopperValidity, processShopperFormData } from './shopperForm.js';
 import { initializeCart } from './coffeeProducts.js';
