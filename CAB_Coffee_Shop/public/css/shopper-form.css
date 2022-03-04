@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
 :root {
   --main-color: #ebc005;
   --main-accent: #000;
@@ -62,7 +60,7 @@
 .form_group {
   height: 65px;
   margin-bottom: 1.6rem;
-  font-family: 'Lato';
+  font-family: inherit;
 }
 
 .form_group label {
@@ -106,7 +104,7 @@
 .form_btn {
   cursor: pointer;
   color: #000;
-  font-family: 'Lato', sans-serif;
+  font-family: inherit;
   font-weight: 700;
   letter-spacing: 1.1px;
   padding: 1em 1em;

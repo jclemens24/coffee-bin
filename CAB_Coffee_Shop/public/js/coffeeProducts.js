@@ -1,19 +1,55 @@
 const modalBody = document.querySelector('.modal-body');
+const cartIcon = document.querySelector('.bi-cart-fill');
 const spinner = document.getElementById('spinner');
+const lazyLoadImg = document.querySelectorAll('img[data-src]');
+
+if (lazyLoadImg) {
+  const revealImgs = function (entries, observer) {
+    const [entry] = entries;
+    console.log(entry);
+
+    if (!entry.isIntersecting) return;
+
+    entry.target.src = entry.target.dataset.src;
+
+    entry.target.addEventListener('load', function (e) {
+      entry.target.classList.remove('lazy-img');
+    });
+
+    observer.unobserve(entry.target);
+  };
+  const imgObserver = new IntersectionObserver(revealImgs, {
+    root: null,
+    threshold: [0, 0.25, 0.5, 0.75, 1],
+    rootMargin: '0px'
+  });
+  lazyLoadImg.forEach(img => {
+    imgObserver.observe(img);
+  });
+}
+
+if (cartIcon) {
+  cartIcon.addEventListener('click', function (e) {
+    if (cart.items.length === 0) {
+      spinner.classList.add('invisible');
+      cart.emptyCart();
+    }
+  });
+}
 
 const fetchAllProducts = async function () {
   try {
-    spinner.classList.add('visible');
+    spinner.classList.toggle('visible');
     const res = await fetch('http://localhost:8000/api/products');
     if (!res.ok || res.status === 404) {
-      throw new Error(res.message);
+      throw new Error('Something went wrong. Please try again.');
     }
     const data = await res.json();
     const { products } = data;
     spinner.classList.add('invisible');
     return products;
   } catch (err) {
-    console.log(err || 'Something went wrong. Please try your request again!');
+    console.log(err);
   }
 };
 

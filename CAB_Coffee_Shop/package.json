@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config config.webpack.cjs"
+    "build": "webpack"
   },
   "author": "Jordan Clemens, Trish Bui, Lillian Abraham",
   "license": "ISC",

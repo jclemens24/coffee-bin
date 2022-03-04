@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, inital-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>C.A.B Coffe Shop</title>
+    <link
+      rel="shortcut icon"
+      href="/public/img/coffee.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="../public/css/styles.css" type="text/css" />
     <!-- CSS only -->
     <link
@@ -46,7 +51,11 @@
           </div>
           <div class="modal-body">
             <div class="d-flex justify-content-center">
-              <div id="spinner" class="spinner-border" role="status">
+              <div
+                id="spinner"
+                class="spinner-border visible text-secondary"
+                role="status"
+              >
                 <span class="visually-hidden">Loading...</span>
               </div>
             </div>
@@ -84,8 +93,8 @@
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="32"
+            height="32"
             fill="currentColor"
             class="bi bi-cart-fill"
             viewBox="0 0 16 16"
@@ -124,7 +133,11 @@
 
     <section class="coffeeProduct">
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/columbian.jpeg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/columbian.jpeg"
+          alt=""
+        />
         <h3 class="coffeeProduct">Columbian</h3>
         <br />
         <p class="coffeeProduct">
@@ -162,7 +175,11 @@
       </div>
 
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/frenchroast.jpg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/frenchroast.jpg"
+          alt=""
+        />
         <h3 class="coffeeProduct">French Roast</h3>
         <br />
         <p class="coffeeProduct">
@@ -201,7 +218,11 @@
       </div>
 
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/caramelroast.jpg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/caramelroast.jpg"
+          alt=""
+        />
         <h3 class="coffeeProduct">Caramel Roast</h3>
         <br />
         <p class="coffeeProduct">
@@ -223,7 +244,11 @@
     </section>
     <section class="coffeeProduct">
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/espresso.jpeg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/espresso.jpeg"
+          alt=""
+        />
         <h3 class="coffeeProduct">Espresso</h3>
         <br />
         <p class="coffeeProduct">
@@ -243,7 +268,11 @@
         </ul>
       </div>
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/whiteroast.jpg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/whiteroast.jpg"
+          alt=""
+        />
         <h3 class="coffeeProduct">White Roast</h3>
         <br />
         <p class="coffeeProduct">
@@ -263,7 +292,11 @@
         </ul>
       </div>
       <div class="coffeeProduct_container">
-        <img class="coffee_img" src="../public/img/decaf.jpg" alt="" />
+        <img
+          class="coffee_img lazy-img"
+          data-src="../public/img/decaf.jpg"
+          alt=""
+        />
         <h3 class="coffeeProduct">Decaf</h3>
         <br />
         <p class="coffeeProduct">
