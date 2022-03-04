@@ -23,7 +23,7 @@ if (shopperForm) {
   shopperForm.addEventListener('submit', processShopperFormData);
 }
 
-if (product) {
+if (product.length !== 0) {
   product.forEach(el => {
     el.addEventListener('click', initializeCart);
   });

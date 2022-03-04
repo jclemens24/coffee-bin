@@ -185,9 +185,25 @@ img.head_img {
   width: 100%;
 }
 
+.review_overlay {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  min-height: 50%;
+  width: 75%;
+  margin-right: calc(100% - 200px);
+  margin-left: calc(100% - 200px);
+  background-color: #fff;
+}
+
+.review_box {
+  display: flex;
+  justify-content: center;
+}
+
 .coffee_img {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 8px;
@@ -215,8 +231,8 @@ div.Company_Info {
 }
 
 div.Company_Info h2 {
-  text-decoration: underline;
   margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
 div.Company_Info p {
@@ -234,14 +250,20 @@ section.Shopper_DocumentCollection {
 
 .Shopper_DocumentCollection h2 {
   margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 section.Shopper_DocumentCollection a:-webkit-any-link,
-section.Shopper_DocumentationCollection a:link,
-section.Shopper_DocumentationCollection a:visited,
-section.Shopper_DocumentationCollection a:hover,
-section.Shopper_DocumentationCollection a:active {
+section.Shopper_DocumentationCollection a:link {
   color: var(--main-accent);
+}
+
+section.Shopper_DocumentationCollection a:visited {
+  color: var(--text-color);
+}
+
+section.Shopper_DocumentCollection a:hover {
+  transform: scale(1.1, 1.1);
 }
 
 section.coffeeProductsHead {

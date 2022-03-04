@@ -3,7 +3,7 @@ const cartIcon = document.querySelector('.bi-cart-fill');
 const spinner = document.getElementById('spinner');
 const lazyLoadImg = document.querySelectorAll('img[data-src]');
 
-if (lazyLoadImg) {
+if (lazyLoadImg.length !== 0) {
   const revealImgs = function (entries, observer) {
     const [entry] = entries;
     console.log(entry);
