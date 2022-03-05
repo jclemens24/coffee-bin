@@ -2,6 +2,20 @@ const modalBody = document.querySelector('.modal-body');
 const cartIcon = document.querySelector('.bi-cart-fill');
 const spinner = document.getElementById('spinner');
 const lazyLoadImg = document.querySelectorAll('img[data-src]');
+const btnReset = document.querySelector('.reset_button');
+const btnSave = document.querySelector('.save_button');
+
+if (btnReset) {
+  btnReset.addEventListener('click', function (e) {
+    cart.emptyCart();
+  });
+}
+
+if (btnSave) {
+  btnSave.addEventListener('click', function (e) {
+    cart.saveCart();
+  });
+}
 
 if (lazyLoadImg.length !== 0) {
   const revealImgs = function (entries, observer) {
@@ -31,9 +45,9 @@ if (lazyLoadImg.length !== 0) {
 if (cartIcon) {
   cartIcon.addEventListener('click', function (e) {
     if (cart.items.length === 0) {
-      spinner.classList.add('invisible');
       cart.emptyCart();
     }
+    spinner.classList.add('invisible');
   });
 }
 
@@ -53,12 +67,24 @@ const fetchAllProducts = async function () {
   }
 };
 
+class spanMessages extends HTMLSpanElement {
+  constructor() {
+    super();
+
+    this.textContent = 'Saved Successfully!';
+    this.style.display = 'block';
+    this.style.padding = '0.5rem 0';
+    this.style.color = 'var(--bs-green)';
+  }
+}
+
+customElements.define('span-message', spanMessages, { extends: 'span' });
+
 class CartView {
   _parentElement = document.querySelector('.modal-body');
   _listElement = document.querySelector('.modal-items');
   _cartTotals = document.querySelector('.cart-totals');
-  _cartBadge = document.getElementById('cartBadge');
-  _cartNavBadge = document.getElementById('cartNav');
+  _cartBadge = document.querySelectorAll('.cartBadge');
   _message = '';
   items = [];
   totalItems = 0;
@@ -74,13 +100,14 @@ class CartView {
       style: 'currency',
       currency: 'USD'
     }).format(this.calcTotalCartPrice());
-    this._cartBadge.textContent = this.calcNumberOfCartItems();
-    this._cartNavBadge.textContent = this.calcNumberOfCartItems();
+    this._cartBadge.forEach(badge => {
+      badge.textContent = this.calcNumberOfCartItems();
+    });
   }
 
   generateMarkup(data) {
     return `<li class="modal-item" id="${data._id}">
-              <img class="coffee_modal_img" src="/public/img/${
+              <img class="coffee_modal_img" src="../public/img/${
                 data.image
               }" alt='${data.description}' />
               <p>${data.category}</p>
@@ -112,8 +139,9 @@ class CartView {
         style: 'currency',
         currency: 'USD'
       }).format(this.calcTotalCartPrice());
-      this._cartBadge.textContent = this.calcNumberOfCartItems();
-      this._cartNavBadge.textContent = this.calcNumberOfCartItems();
+      this._cartBadge.forEach(badge => {
+        badge.textContent = this.calcNumberOfCartItems();
+      });
     }
   }
 
@@ -123,10 +151,11 @@ class CartView {
       style: 'currency',
       currency: 'USD'
     }).format(this.calcTotalCartPrice());
+    return this;
   }
 
   calcNumberOfCartItems() {
-    this.totalItems = this.items.reduce(
+    this.totalItems = this.items?.reduce(
       (prev, curr) => prev + curr.quantity,
       0
     );
@@ -134,7 +163,7 @@ class CartView {
   }
 
   calcTotalCartPrice() {
-    this.totalAmount = this.items.reduce((acc, item) => {
+    this.totalAmount = this.items?.reduce((acc, item) => {
       const { price } = item;
       const { quantity } = item;
       return acc + price * quantity;
@@ -145,25 +174,42 @@ class CartView {
 
   emptyCart() {
     this.clear();
+    this.items.splice(0);
+    this.calcTotalCartPrice();
+    this.calcNumberOfCartItems();
     this._listElement.textContent = `You're cart is empty`;
-    this._cartBadge.textContent = this.calcNumberOfCartItems();
-    this._cartNavBadge.textContent = this.calcNumberOfCartItems();
+    this._cartBadge.forEach(badge => {
+      badge.textContent = this.totalAmount;
+    });
+    this._cartTotals.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(this.calcTotalCartPrice());
+    localStorage.removeItem('cart');
   }
 
   saveCart() {
-    const cart = localStorage.setItem('cart', JSON.stringify(this.items));
-    console.log(cart);
+    localStorage.setItem('cart', JSON.stringify(this.items));
+    const span = document.createElement('span', {
+      is: 'span-message'
+    });
+    this._parentElement.appendChild(span);
+
+    setTimeout(() => {
+      this._parentElement.removeChild(span);
+    }, 5000);
   }
 }
 
 const onWindowReload = function () {
   const storage = localStorage.getItem('cart');
   if (storage) cart.items = JSON.parse(storage);
-  cart.render(storage);
-  window.removeEventListener('load', onWindowReload);
+  cart.render();
+  spinner.classList.remove('visible');
+  spinner.classList.add('invisible');
 };
 
-document.addEventListener('load', onWindowReload);
+window.addEventListener('load', onWindowReload);
 
 const addItemToCart = function (id) {
   const item = cart.items.find(prod => prod._id === id);

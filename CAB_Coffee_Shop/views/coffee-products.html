@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>C.A.B Coffe Shop</title>
     <link
@@ -36,7 +36,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <span
-              class="badge position-absolute top-0 start-1 translate-middle badge rounded-pill border border-light bg-danger"
+              class="badge position-absolute top-0 start-1 translate-middle badge rounded-pill border border-light bg-danger cartBadge"
               id="cartBadge"
               >0
               <span class="visually-hidden">items</span>
@@ -60,17 +60,32 @@
               </div>
             </div>
             <ul class="modal-items"></ul>
+            <span>Total&colon;&nbsp; </span>
             <div class="cart-totals"></div>
           </div>
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-outline-info btn-lg save_button"
+            >
+              Save
+            </button>
+            <button
+              type="reset"
+              class="btn btn-outline-danger btn-lg reset_button"
+            >
+              Empty
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
               data-bs-dismiss="modal"
             >
               Close
             </button>
-            <button type="button" class="btn btn-warning">Checkout</button>
+            <button type="button" class="btn btn-warning btn-lg">
+              Checkout
+            </button>
           </div>
         </div>
       </div>
@@ -78,15 +93,15 @@
     <header>
       <nav class="heading_nav">
         <ul class="nav_links">
-          <li><a href="/views/index.html">Home</a></li>
-          <li><a href="/views/coffee-products.html">Coffee</a></li>
-          <li><a href="/views/teaProducts.html">Tea</a></li>
-          <li><a href="/views/merch.html">Merch</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./coffee-products.html">Coffee</a></li>
+          <li><a href="./teaProducts.html">Tea</a></li>
+          <li><a href="./merch.html">Merch</a></li>
           <li><a href="">Contact</a></li>
         </ul>
         <div class="cart">
           <span
-            class="badge position-absolute top-0 start-1 translate-middle badge rounded-circle border border-light bg-danger"
+            class="badge position-absolute top-0 start-1 translate-middle badge rounded-circle border border-light bg-danger cartBadge"
             id="cartNav"
             >0
             <span class="visually-hidden">items</span>
