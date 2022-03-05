@@ -55,14 +55,13 @@ if (cartIcon) {
     if (cart.items.length === 0) {
       cart.emptyCart();
     }
-    spinner.classList.add('invisible');
+    spinner.classList.toggle('visible');
   });
 }
 
 const fetchAllProducts = async function () {
   try {
-    spinner.classList.remove('invisible');
-    spinner.classList.toggle('visible');
+    spinner.classList.toggle('invisible');
     const res = await fetch('http://localhost:8000/api/products');
     if (!res.ok || res.status === 404) {
       throw new Error('Something went wrong. Please try again.');
