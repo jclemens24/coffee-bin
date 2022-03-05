@@ -337,6 +337,10 @@ section.divide {
   margin-right: 20px;
 }
 
+.modal-open {
+  padding-right: 0 !important;
+}
+
 .modal-dialog {
   max-width: 50% !important;
   font-size: 20px;

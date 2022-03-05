@@ -5,6 +5,14 @@ const lazyLoadImg = document.querySelectorAll('img[data-src]');
 const btnReset = document.querySelector('.reset_button');
 const btnSave = document.querySelector('.save_button');
 
+var tooltipTriggerList = [].slice.call(
+  document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  // eslint-disable-next-line no-undef
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
 if (btnReset) {
   btnReset.addEventListener('click', function (e) {
     cart.emptyCart();
@@ -53,6 +61,7 @@ if (cartIcon) {
 
 const fetchAllProducts = async function () {
   try {
+    spinner.classList.remove('invisible');
     spinner.classList.toggle('visible');
     const res = await fetch('http://localhost:8000/api/products');
     if (!res.ok || res.status === 404) {
@@ -60,7 +69,7 @@ const fetchAllProducts = async function () {
     }
     const data = await res.json();
     const { products } = data;
-    spinner.classList.add('invisible');
+    spinner.classList.toggle('invisible');
     return products;
   } catch (err) {
     console.log(err);
@@ -209,7 +218,9 @@ const onWindowReload = function () {
   spinner.classList.add('invisible');
 };
 
-window.addEventListener('load', onWindowReload);
+if (window.location.pathname === '/views/coffee-products.html') {
+  window.addEventListener('load', onWindowReload);
+}
 
 const addItemToCart = function (id) {
   const item = cart.items.find(prod => prod._id === id);
