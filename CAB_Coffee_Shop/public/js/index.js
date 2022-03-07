@@ -1,8 +1,6 @@
 import 'core-js';
 import 'regenerator-runtime';
-import { checkProductValidity, processProductFormData } from './productForm.js';
-import { checkShopperValidity, processShopperFormData } from './shopperForm.js';
-import { initializeCart, cart } from './coffeeProducts.js';
+import { cart } from './coffeeProducts.js';
 import '../css/styles.css';
 
 const productForm = document.querySelector('.product_form');
@@ -11,22 +9,28 @@ const input = document.querySelectorAll('input');
 const product = document.querySelectorAll('.dropdown-item');
 
 if (productForm) {
-  input.forEach(el => {
-    el.addEventListener('input', checkProductValidity.bind(el));
+  import('./productForm.js').then(Module => {
+    input.forEach(el => {
+      el.addEventListener('input', Module.checkProductValidity.bind(el));
+    });
+    productForm.addEventListener('submit', Module.processProductFormData);
   });
-  productForm.addEventListener('submit', processProductFormData);
 }
 
 if (shopperForm) {
-  input.forEach(el => {
-    el.addEventListener('input', checkShopperValidity.bind(el));
+  import('./shopperForm.js').then(Module => {
+    input.forEach(el => {
+      el.addEventListener('input', Module.checkShopperValidity.bind(el));
+    });
+    shopperForm.addEventListener('submit', Module.processShopperFormData);
   });
-  shopperForm.addEventListener('submit', processShopperFormData);
 }
 
 if (product.length !== 0) {
-  product.forEach(el => {
-    el.addEventListener('click', initializeCart);
+  import('./coffeeProducts.js').then(Module => {
+    product.forEach(el => {
+      el.addEventListener('click', Module.initializeCart);
+    });
   });
 }
 

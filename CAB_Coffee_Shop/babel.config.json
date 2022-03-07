@@ -11,5 +11,6 @@
         "targets": "> 0.25%, not dead"
       }
     ]
-  ]
+  ],
+  "plugins": ["@babel/plugin-syntax-dynamic-import"]
 }
