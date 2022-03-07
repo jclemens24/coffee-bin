@@ -93,6 +93,7 @@ class CartView {
   _listElement = document.querySelector('.modal-items');
   _cartTotals = document.querySelector('.cart-totals');
   _cartBadge = document.querySelectorAll('.cartBadge');
+  _checkoutForm = document.querySelector('.send_cart');
   _message = '';
   items = [];
   totalItems = 0;
@@ -102,6 +103,7 @@ class CartView {
     if (this.items.length === 0) {
       return this.emptyCart();
     }
+    console.log(this.items);
     const markup = this.items.map(this.generateMarkup).join('');
     this._listElement.insertAdjacentHTML('afterbegin', markup);
     this._cartTotals.innerHTML = new Intl.NumberFormat('en-US', {
@@ -207,6 +209,27 @@ class CartView {
       this._parentElement.removeChild(span);
     }, 5000);
   }
+
+  checkout(handler) {
+    this._checkoutForm.addEventListener('submit', e => {
+      e.preventDefault();
+      // const formatItems = this.items.map(item => {
+      //   return {
+      //     _id: item._id,
+      //     quantity: item.quantity
+      //   };
+      // });
+      // handler(formatItems);
+      const formatItems = this.items.reduce(
+        (acc, cur) => ({
+          ...acc,
+          [cur._id]: cur.quantity
+        }),
+        {}
+      );
+      handler(formatItems);
+    });
+  }
 }
 
 const onWindowReload = function () {
@@ -265,4 +288,4 @@ export const initializeCart = async function (e) {
   }
 };
 
-const cart = new CartView();
+export const cart = new CartView();
