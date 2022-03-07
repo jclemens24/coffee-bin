@@ -32,7 +32,7 @@ if (product.length !== 0) {
 const checkoutProcess = async function (items) {
   try {
     // eslint-disable-next-line no-undef
-    const stripe = stripe(
+    const stripe = Stripe(
       'pk_test_51KaMtSCeG8rgbalbuXncDRdtRegT24VO64UAEbemtj0uyw2dqWWXbXPlusY5AGbVIjT5IEIb2iay04ik9thwhCfc00xWDoDyh0'
     );
     const req = await fetch(

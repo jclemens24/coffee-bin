@@ -35,7 +35,7 @@ export const checkProductValidity = function () {
   }
 };
 
-export const processProductFormData = function (e) {
+export const processProductFormData = async function (e) {
   e.preventDefault();
   const isValid = validateProductForm();
   if (isValid) {
@@ -47,12 +47,15 @@ export const processProductFormData = function (e) {
       price: productForm.price.value,
       weight: productForm.weight?.value
     };
+    const res = await fetch('http://localhost:8000/api/products/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(captureData)
+    });
+    const data = await res.json();
+    console.log(data);
     console.log(captureData);
   }
 };
-
-// input.forEach(el => {
-//   el.addEventListener('input', checkValidity.bind(el));
-// });
-
-// productForm?.addEventListener('submit', processProductFormData);

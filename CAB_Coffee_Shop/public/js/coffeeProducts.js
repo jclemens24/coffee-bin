@@ -5,10 +5,10 @@ const lazyLoadImg = document.querySelectorAll('img[data-src]');
 const btnReset = document.querySelector('.reset_button');
 const btnSave = document.querySelector('.save_button');
 
-var tooltipTriggerList = [].slice.call(
+let tooltipTriggerList = [].slice.call(
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
 );
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+tooltipTriggerList.map(function (tooltipTriggerEl) {
   // eslint-disable-next-line no-undef
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
@@ -213,13 +213,6 @@ class CartView {
   checkout(handler) {
     this._checkoutForm.addEventListener('submit', e => {
       e.preventDefault();
-      // const formatItems = this.items.map(item => {
-      //   return {
-      //     _id: item._id,
-      //     quantity: item.quantity
-      //   };
-      // });
-      // handler(formatItems);
       const formatItems = this.items.reduce(
         (acc, cur) => ({
           ...acc,

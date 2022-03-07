@@ -44,8 +44,6 @@
               type="number"
               required
               placeholder="Product ID"
-              minlength="3"
-              maxlength="7"
               pattern="[0-9]+"
             />
           </div>
@@ -59,7 +57,9 @@
               name="description"
               placeholder="Description"
               required
-              pattern="[a-zA-Z]+"
+              pattern="[a-z A-Z]+"
+              minlength="3"
+              maxlength="50"
             />
           </div>
           <div class="form_group">
