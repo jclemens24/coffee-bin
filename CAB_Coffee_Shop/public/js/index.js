@@ -3,6 +3,7 @@ import 'regenerator-runtime';
 import { checkProductValidity, processProductFormData } from './productForm.js';
 import { checkShopperValidity, processShopperFormData } from './shopperForm.js';
 import { initializeCart, cart } from './coffeeProducts.js';
+import '../css/styles.css';
 
 const productForm = document.querySelector('.product_form');
 const shopperForm = document.querySelector('.shopper_form');

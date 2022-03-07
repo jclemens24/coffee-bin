@@ -206,7 +206,7 @@ img.head_img {
   width: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 8px;
+  margin-bottom: 2rem;
   border: 2px solid var(--main-color);
 }
 
@@ -270,12 +270,16 @@ section.coffeeProductsHead {
   font-weight: 700 !important;
   background-color: #ebc005;
   color: black;
-  padding: 20px;
+  padding: 35px;
   text-align: center;
 }
 
+.coffeeProductsHead h1 {
+  margin-bottom: 2rem;
+}
+
 section.coffeeProduct {
-  gap: 15px;
+  gap: 20px;
   font-weight: bold;
   background-color: white;
   color: black;
@@ -289,8 +293,8 @@ section.coffeeProduct {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex: 1 0 0;
+  justify-content: space-around;
+  flex: 2 1 0;
 }
 
 div.coffeeProduct p {
@@ -350,6 +354,7 @@ section.divide {
 .modal-title {
   font-size: 24px;
   font-weight: 700;
+  color: var(--main-accent);
 }
 
 @media screen and (max-width: 1130px) {
@@ -372,6 +377,11 @@ div.modal-header {
   display: flex;
   flex-direction: column;
   list-style: none;
+  color: var(--main-accent);
+}
+
+.total {
+  color: var(--main-accent);
 }
 
 .modal-item {
@@ -381,11 +391,12 @@ div.modal-header {
   align-items: center;
   padding: 10px 0;
   font-size: 20px;
+  color: var(--main-accent);
 }
 
 .coffee_modal_img {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--main-color);
