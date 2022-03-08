@@ -50,17 +50,10 @@ export default async function () {
     goToSlide(0);
   };
 
-  init();
-
   btnRight.addEventListener('click', nextSlide);
   btnLeft.addEventListener('click', prevSlide);
-  dotsContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('dots__dot')) {
-      const { slide } = e.target.dataset;
-      goToSlide(slide);
-      activeDot(slide);
-    }
-  });
+
+  init();
 
   document.addEventListener('keydown', function (e) {
     e.key === 'ArrowLeft' && prevSlide();

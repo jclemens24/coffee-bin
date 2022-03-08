@@ -7,7 +7,12 @@ const productForm = document.querySelector('.product_form');
 const shopperForm = document.querySelector('.shopper_form');
 const input = document.querySelectorAll('input');
 const product = document.querySelectorAll('.dropdown-item');
+const navigation = document.querySelector('.heading_nav');
 const { body } = document;
+
+const sticky = await import('./stickyNav.js');
+navigation.addEventListener('mouseover', sticky.handleHover.bind(0.2));
+navigation.addEventListener('mouseout', sticky.handleHover.bind(1));
 
 if (productForm) {
   import('./productForm.js').then(Module => {

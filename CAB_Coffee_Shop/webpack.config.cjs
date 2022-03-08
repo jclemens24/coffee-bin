@@ -61,9 +61,20 @@ const config = {
       template: './views/products-form.html',
       filename: 'products-form.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './views/merch.html',
+      filename: 'merch.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './views/locations.html',
+      filename: 'locations.html'
+    }),
     new MiniCssExtractPlugin()
   ],
-  mode: 'development'
+  mode: 'development',
+  experiments: {
+    topLevelAwait: true
+  }
 };
 
 module.exports = config;

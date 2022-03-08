@@ -115,6 +115,7 @@ nav.heading_nav {
   font-family: inherit;
   text-transform: uppercase;
   padding: 10px 0;
+  width: 100%;
 }
 
 nav .nav_links {
@@ -123,6 +124,11 @@ nav .nav_links {
   flex-direction: row;
   align-items: center;
   font-size: 1.2rem;
+}
+
+.heading_nav.sticky {
+  position: fixed;
+  background-color: rgba(233, 227, 146, 0.95);
 }
 
 .cart {
