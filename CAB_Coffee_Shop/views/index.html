@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>C.A.B | Coffee Shop</title>
+    <title><%= title %></title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -15,7 +15,7 @@
       type="image/x-icon"
     />
   </head>
-  <body>
+  <body class="Index">
     <header>
       <nav class="heading_nav">
         <ul class="nav_links">
@@ -29,14 +29,81 @@
 
       <h1 class="company_name">C.A.B Coffee Company</h1>
     </header>
-    <!-- Working on adding a customer review slider -->
-    <!-- <div class="review_overlay">
-      <div class="review_box">
-        <h3>Read what our customers have said about us</h3>
-      </div>
-    </div> -->
     <div class="head_img">
-      <div class="overlay"></div>
+      <div class="overlay">
+        <div class="slider">
+          <div class="slide slide--1">
+            <div class="testimonial">
+              <h5 class="testimonial__header">Best Coffee Ever! 💯</h5>
+              <blockquote class="testimonial__text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Accusantium quas quisquam non? Quas voluptate nulla minima
+                deleniti optio ullam nesciunt, numquam corporis et asperiores
+                laboriosam sunt, praesentium suscipit blanditiis. Necessitatibus
+                id alias reiciendis, perferendis facere pariatur dolore veniam
+                autem esse non voluptatem saepe provident nihil molestiae.
+              </blockquote>
+              <address class="testimonial__author">
+                <img
+                  src="../public/img/user-1.jpg"
+                  alt="user review photo"
+                  class="testimonial__photo"
+                />
+                <h6 class="testimonial__name">Aaron Lind</h6>
+                <p class="testimonial__location">San Francisco, USA</p>
+              </address>
+            </div>
+          </div>
+          <div class="slide slide--2">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                Did someone say Caramel Roast 😋
+              </h5>
+              <blockquote class="testimonial__text">
+                Quisquam itaque deserunt ullam, quia ea repellendus provident,
+                ducimus neque ipsam modi voluptatibus doloremque, corrupti
+                laborum. Incidunt numquam perferendis veritatis neque
+                repellendus. Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Illo deserunt exercitationem deleniti.
+              </blockquote>
+              <address class="testimonial__author">
+                <img
+                  src="../public/img/user-2.jpg"
+                  alt=""
+                  class="testimonial__photo"
+                />
+                <h6 class="testimonial__name">Miyah Miles</h6>
+                <p class="testimonial__location">London, UK</p>
+              </address>
+            </div>
+          </div>
+          <div class="slide slide--3">
+            <div class="testimonial">
+              <h5 class="testimonial__header">Money well spent 🤑</h5>
+              <blockquote class="testimonial__text">
+                Debitis, nihil sit minus suscipit magni aperiam vel tenetur
+                incidunt commodi architecto numquam omnis nulla autem,
+                necessitatibus blanditiis modi similique quidem. Odio aliquam
+                culpa dicta beatae quod maiores ipsa minus consequatur error
+                sunt, deleniti saepe aliquid quos inventore sequi.
+                Necessitatibus id alias reiciendis, perferendis facere.
+              </blockquote>
+              <address class="testimonial__author">
+                <img
+                  src="../public/img/user-3.jpg"
+                  alt=""
+                  class="testimonial__photo"
+                />
+                <h6 class="testimonial__name">Fernando Reyes</h6>
+                <p class="testimonial__location">Lima, Peru</p>
+              </address>
+            </div>
+          </div>
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
+        </div>
+      </div>
       <img
         class="head_img"
         src="../public/img/hotcoffee.jpg"

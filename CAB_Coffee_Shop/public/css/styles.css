@@ -6,6 +6,7 @@
   --main-color: #ebc005;
   --main-accent: #000;
   --secondary-color: #f1f3f5;
+  --tertiary-color: #1971c2;
   --text-color: #212529;
   --scrollbar-color: #868e96;
 }
@@ -185,20 +186,145 @@ img.head_img {
   width: 100%;
 }
 
-.review_overlay {
+.slide {
   position: absolute;
-  top: 50%;
-  z-index: 3;
-  min-height: 50%;
-  width: 75%;
-  margin-right: calc(100% - 200px);
-  margin-left: calc(100% - 200px);
-  background-color: #fff;
-}
-
-.review_box {
+  top: 0;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  z-index: 4;
+  color: var(--main-accent);
+  transition: transform 200ms;
+  overflow: hidden;
+}
+
+.slide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial {
+  width: 75%;
+  position: relative;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: -5.7rem;
+  left: -6rem;
+  line-height: 1;
+  font-size: 15rem;
+  font-family: inherit;
+  color: var(--main-color);
+  z-index: -1;
+}
+
+.testimonial__header {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial__text {
+  font-size: 1.7rem;
+  margin-bottom: 3.5rem;
+  color: var(--secondary-color);
+}
+
+.testimonial__author {
+  margin-left: 3rem;
+  font-style: normal;
+
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 2rem;
+}
+
+.testimonial__photo {
+  grid-row: 1 / span 2;
+  width: 6.5rem;
+  border-radius: 50%;
+}
+
+.testimonial__name {
+  font-size: 1.7rem;
+  font-weight: 500;
+  align-self: end;
+  margin: 0;
+}
+
+.testimonial__location {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+.section__title--testimonials {
+  margin-bottom: 4rem;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 10px;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  background-color: rgb(87, 87, 87);
+  opacity: 1;
 }
 
 .coffee_img {
@@ -370,7 +496,12 @@ div.modal-header {
 }
 
 .modal-body {
-  background-color: rgba(170, 170, 170, 0.26);
+  background-color: rgba(170, 170, 170, 0.699);
+  background-image: url(/public/img/cart.jpg);
+  background-position: center;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: saturation, overlay;
 }
 
 .modal-items {
@@ -417,7 +548,7 @@ div.cart-actions {
 
 .bi-plus-circle,
 .bi-dash-circle {
-  color: var(--bs-warning);
+  color: var(--tertiary-color);
   cursor: pointer;
   font-size: 1.5rem;
   margin: 0px 10px;

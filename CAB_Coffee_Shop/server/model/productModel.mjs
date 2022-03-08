@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema({
     trim: true,
     enum: ['grams', 'oz'],
     set: function (u) {
-      return u.replace(/g/g, 'grams');
+      return u.length === 1 ? u.replace(/g/g, 'grams') : u;
     }
   },
   price: {

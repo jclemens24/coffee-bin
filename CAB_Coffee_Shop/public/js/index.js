@@ -7,6 +7,7 @@ const productForm = document.querySelector('.product_form');
 const shopperForm = document.querySelector('.shopper_form');
 const input = document.querySelectorAll('input');
 const product = document.querySelectorAll('.dropdown-item');
+const { body } = document;
 
 if (productForm) {
   import('./productForm.js').then(Module => {
@@ -65,6 +66,13 @@ const init = function () {
   cart.checkout(checkoutProcess);
 };
 
-if (window.location.pathname === '/views/coffee-products.html') {
+if (body.className === 'CoffeeProducts') {
   init();
+}
+
+if (body.className === 'Index') {
+  import('./slider.js').then(Module => {
+    const slider = Module.default;
+    slider();
+  });
 }

@@ -8,13 +8,22 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js',
-    clean: true
+    clean: true,
+    assetModuleFilename: 'images/[hash][ext]'
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource'
       },
       {
         test: /\.m?js$/i,
@@ -29,10 +38,12 @@ const config = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './views/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      templateParameters: {
+        title: 'C.A.B | Coffee Shop'
+      }
     }),
     new HtmlWebpackPlugin({
       template: './views/coffee-products.html',
@@ -49,9 +60,10 @@ const config = {
     new HtmlWebpackPlugin({
       template: './views/products-form.html',
       filename: 'products-form.html'
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
-  mode: 'production'
+  mode: 'development'
 };
 
 module.exports = config;
