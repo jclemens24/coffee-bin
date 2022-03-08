@@ -1,7 +1,6 @@
 .parcel-cache/
 coverage/
 dist/*
-!dist/index.html
 node_modules/
 *.log
 **/config.env
