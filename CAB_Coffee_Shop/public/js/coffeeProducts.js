@@ -25,12 +25,6 @@ if (btnSave) {
   });
 }
 
-if (window.screen.width < 960) {
-  lazyLoadImg.forEach(img => {
-    img.src = img.dataset.src;
-  });
-}
-
 if (lazyLoadImg.length !== 0) {
   const revealImgs = function (entries, observer) {
     const [entry] = entries;
@@ -47,7 +41,7 @@ if (lazyLoadImg.length !== 0) {
   const imgObserver = new IntersectionObserver(revealImgs, {
     root: null,
     threshold: [0, 0.25, 0.5, 0.75, 1],
-    rootMargin: '0px'
+    rootMargin: '0px 0px 0px 0px'
   });
   lazyLoadImg.forEach(img => {
     imgObserver.observe(img);
@@ -97,7 +91,6 @@ class CartView {
   _listElement = document.querySelector('.modal-items');
   _cartTotals = document.querySelector('.cart-totals');
   _cartBadge = document.querySelectorAll('.cartBadge');
-  _checkoutForm = document.querySelector('.send_cart');
   _message = '';
   items = [];
   totalItems = 0;
@@ -214,18 +207,15 @@ class CartView {
     }, 5000);
   }
 
-  checkout(handler) {
-    this._checkoutForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const formatItems = this.items.reduce(
-        (acc, cur) => ({
-          ...acc,
-          [cur._id]: cur.quantity
-        }),
-        {}
-      );
-      handler(formatItems);
-    });
+  checkout() {
+    const formatItems = this.items.reduce(
+      (acc, cur) => ({
+        ...acc,
+        [cur._id]: cur.quantity
+      }),
+      {}
+    );
+    return formatItems;
   }
 }
 

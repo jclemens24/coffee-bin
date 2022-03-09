@@ -4,7 +4,8 @@
     "document": "writable",
     "window": "writable",
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "globalThis": "writable"
   },
   "plugins": ["prettier"],
   "ignorePatterns": ["dist/"],

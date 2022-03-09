@@ -4,12 +4,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-  entry: './public/js/index.js',
+  entry: {
+    index: './public/js/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     clean: true,
     assetModuleFilename: 'images/[hash][ext]'
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -71,7 +86,7 @@ const config = {
     }),
     new MiniCssExtractPlugin()
   ],
-  mode: 'development',
+  mode: 'production',
   experiments: {
     topLevelAwait: true
   }
