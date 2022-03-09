@@ -15,5 +15,6 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-syntax-top-level-await"
-  ]
+  ],
+  "ignore": ["node_modules"]
 }
