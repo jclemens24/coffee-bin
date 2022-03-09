@@ -16,11 +16,11 @@ export const getCheckoutSession = catchAsync(async (req, res, next) => {
       description: item.description,
       price_data: {
         unit_amount: item.price * 100,
+        product: item._id,
         currency: 'usd',
         product_data: {
           name: item.category,
-          description: item.description,
-          images: [`${req.protocol}://127.0.0.1:8000/img/${item.image}`]
+          description: item.description
         }
       },
       quantity: quantities[i]

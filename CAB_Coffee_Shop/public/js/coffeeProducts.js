@@ -25,12 +25,16 @@ if (btnSave) {
   });
 }
 
+if (window.screen.width < 960) {
+  lazyLoadImg.forEach(img => {
+    img.src = img.dataset.src;
+  });
+}
+
 if (lazyLoadImg.length !== 0) {
   const revealImgs = function (entries, observer) {
     const [entry] = entries;
     console.log(entry);
-
-    if (!entry.isIntersecting) return;
 
     entry.target.src = entry.target.dataset.src;
 

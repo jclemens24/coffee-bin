@@ -15,6 +15,7 @@ import { router as checkoutRouter } from './routes/checkoutRoute.mjs';
 
 dotenv.config({ path: './config.env' });
 const __dirname = dirname(fileURLToPath(import.meta.url));
+console.log(__dirname);
 const app = express();
 const port = 8000 || process.env.PORT;
 

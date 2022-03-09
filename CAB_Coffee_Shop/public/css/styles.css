@@ -21,7 +21,6 @@
 }
 
 html {
-  height: 100vh;
   width: 100vw;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -544,12 +543,14 @@ div.modal-header {
   color: var(--main-accent);
 }
 
-.lazy-img {
-  filter: blur(20px);
-}
-
 div.cart-actions {
   padding: 0 40px;
+}
+
+@media only screen and (min-width: 960px) {
+  .lazy-img {
+    filter: blur(20px);
+  }
 }
 
 .bi-plus-circle,
