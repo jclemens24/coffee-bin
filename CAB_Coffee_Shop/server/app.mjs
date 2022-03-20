@@ -12,6 +12,7 @@ import { errorHandler } from './controller/errorController.mjs';
 import { router as customerRouter } from './routes/customerRoute.mjs';
 import { router as productRouter } from './routes/productRoute.mjs';
 import { router as checkoutRouter } from './routes/checkoutRoute.mjs';
+import { webhookCheckout } from './controller/checkoutController.mjs';
 
 dotenv.config({ path: './config.env' });
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -39,6 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webhookCheckout
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
