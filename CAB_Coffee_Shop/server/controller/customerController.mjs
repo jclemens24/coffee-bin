@@ -6,7 +6,7 @@ import { getCoordsFromAddress } from '../utils/location.mjs';
 export const getAllCustomers = catchAsync(async (req, res, next) => {
   const customers = await Customer.find({});
 
-  if (!customers) return next();
+  if (!customers) return next(new AppError('No customers found', 404));
 
   res.status(200).json({
     status: 'success',

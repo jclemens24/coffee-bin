@@ -60,6 +60,6 @@ app.all('*', (req, res, next) => {
 });
 app.use(errorHandler);
 
-app.listen(port, '127.0.0.1', () => {
+app.listen(port, 'localhost', () => {
   console.log(`Server listening on port ${port}`);
 });

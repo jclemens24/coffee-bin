@@ -171,8 +171,7 @@ class CartView {
 
   calcTotalCartPrice() {
     this.totalAmount = this.items?.reduce((acc, item) => {
-      const { price } = item;
-      const { quantity } = item;
+      const { price, quantity } = item;
       return acc + price * quantity;
     }, 0);
 

@@ -15,7 +15,11 @@ const checkoutSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Product'
     }
-  ]
+  ],
+  paymentConfirmation: {
+    type: String,
+    required: [true, 'A checkout must have a payment confirmation']
+  }
 });
 
 checkoutSchema.pre('find', function (next) {

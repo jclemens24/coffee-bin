@@ -40,7 +40,7 @@ if (shopperForm) {
 }
 
 if (product.length !== 0) {
-  import('./coffeeProducts.js').then(Module => {
+  await import('./coffeeProducts.js').then(Module => {
     product.forEach(el => {
       el.addEventListener('click', Module.initializeCart);
     });
@@ -77,7 +77,7 @@ const checkoutProcess = async function (items) {
 if (checkoutForm) {
   checkoutForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    import('./coffeeProducts.js').then(Module => {
+    await import('./coffeeProducts.js').then(Module => {
       const cartItems = Module.cart.checkout();
       checkoutProcess(cartItems);
     });

@@ -112,13 +112,19 @@ export const getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createBookingCheckout = async (session, lineItems) => {
+const createBookingCheckout = async session => {
+  console.log(session);
   const items = await Product.find({ _id: globalItems });
   const customer = (
     await Customer.findOne({ email: session.customer_details.email })
   )._id;
   const totalPrice = session.amount_total / 100;
-  await Checkout.create({ customer, totalPrice, items });
+  await Checkout.create({
+    customer,
+    totalPrice,
+    items,
+    paymentConfirmation: session.payment_intent
+  });
 };
 
 export const webhookCheckout = catchAsync(async (req, res, next) => {
